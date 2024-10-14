@@ -319,7 +319,27 @@
       <app-cronometro (minutos) = "actualizar($event)"></app-cronometro>
 
       <hr>
-      
+
+      <table border="1">
+        <tr>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Foto</th>
+          <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let perro of perros">
+          <td>{{perro.nombre}}</td>
+          <td>{{perro.raza}}</td>
+          <td> <img src="{{perro.foto}}" width="50px"> </td>
+          <td>
+            <button (click)="eliminar(perro.nombre)">Borrar</button>
+            <button (click)="seleccionar(perro.nombre)">Seleccionar</button>
+            <img [src]="perro.foto" width="50px">
+          </td>
+        
+        </tr>
+        
+      </table>
 
       
   

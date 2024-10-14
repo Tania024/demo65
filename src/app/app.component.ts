@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { DadoComponent } from "./components/dado/dado.component";
 import { CronometroComponent } from './components/cronometro/cronometro.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
+import { GestionPerrosService } from './services/gestion-perros.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'demo65';
   name ='Tania';
   edad = 10;
@@ -128,6 +130,20 @@ export class AppComponent {
     }
 
   }
+
+  perros:any 
+
+  constructor(private perroService: GestionPerrosService){
+
+  }
+
+  ngOnInit(): void {
+    this.perroService.addPerros('Renzo', 'Beagle')
+    this.perroService.addPerros('Rambo', 'Koker')
+    this.perros = this.perroService.getPerros()
+  }
+
+  
 
 }
 
