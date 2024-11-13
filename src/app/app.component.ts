@@ -18,6 +18,11 @@ import { InicioComponent } from "./pages/inicio/inicio.component";
 })
 export class AppComponent  {
   title = 'demo65';
+  name ='Tania';
+  edad = 10;
+  salario =100
+  contador =0
+  sueldos = [1700, 500, 950, 450]
   
   
 

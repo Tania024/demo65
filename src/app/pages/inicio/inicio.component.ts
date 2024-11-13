@@ -6,6 +6,7 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CronometroComponent } from '../../components/cronometro/cronometro.component';
 import { FormularioComponent } from '../../components/formulario/formulario.component';
+import { PerrosfbService } from '../../services/perrosfb.service';
 
 @Component({
   selector: 'app-inicio',
@@ -132,14 +133,19 @@ export class InicioComponent implements OnInit {
 
   perros:any 
 
-  constructor(private perroService: GestionPerrosService){
+  constructor(private perroService: GestionPerrosService, private perroFBService: PerrosfbService){
 
   }
 
   ngOnInit(): void {
     this.perroService.addPerros('Renzo', 'Beagle')
     this.perroService.addPerros('Rambo', 'Koker')
+    this.perroFBService.addPerro('Renzo', 'Beagle')
+    this.perroFBService.addPerro('Rambo', 'Koker')
+
     this.perros = this.perroService.getPerros()
   }
+
+  
 
 }
