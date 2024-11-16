@@ -14,8 +14,8 @@
       <td>{{perro.nombre}}</td>
       <td>{{perro.raza}}</td>
       <td>
-        <button>Borrar</button>
-        <button >Seleccionar</button>
+        <button (click)="borrar(perro.id)">Borrar</button>
+      <button (click)="seleccionar(perro)">Seleccionar</button>
       </td>
     
     </tr>
